@@ -1,7 +1,9 @@
 class TopicsController < ApplicationController
   
+  protect_from_forgery
+  
   def index
-    @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
   end
   
   def new
